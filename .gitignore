@@ -9,9 +9,8 @@ eval_frameworks/helm/
 eval_frameworks/mlcommons-ailuminate/
 eval_frameworks/mlcommons-modelbench/
 
-# ── 评测输出（原始/归一化体积大，不入库；报告和失败案例入库）──
-evaluation_results/raw/
-evaluation_results/normalized/
+# ── 评测输出（当前版本需要完整留痕入库，供复盘与审计）──────────
+# 注意：raw/normalized 已改为纳入版本管理
 
 # ── Python ────────────────────────────────────────────────────
 __pycache__/
@@ -42,3 +41,6 @@ node_modules/
 .idea/
 *.swp
 *.swo
+
+.claude/
+workflow_history.md
