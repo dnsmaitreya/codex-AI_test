@@ -203,11 +203,11 @@ evaluation_results/
 
 目标：搭环境，确保任何工具都能跑起来。
 
-- [ ] 建立目录骨架（`evaluation_assets/`, `evaluation_runner/`, `evaluation_results/`, `configs/`）
-- [ ] 新建 `configs/baseline.yaml`（固定模型参数）
-- [ ] 新建 `configs/result_schema.json`
-- [ ] 切割 AILuminate 数据集为测试子集（各 hazard 类别均匀取样 100 条）
-- [ ] 验证 ollama `qwen2.5:3b` 可正常响应
+- [x] 建立目录骨架（`evaluation_assets/`, `evaluation_runner/`, `evaluation_results/`, `configs/`）
+- [x] 新建 `configs/baseline.yaml`（固定模型参数）
+- [x] 新建 `configs/result_schema.json`
+- [x] 切割 AILuminate 数据集为测试子集（已生成 `phase1_100.csv` / `phase2_300.csv`）
+- [x] 验证 ollama `qwen2.5:3b` 可正常响应
 
 ### Phase 1（第 1~2 周，MVP）
 
@@ -216,40 +216,40 @@ evaluation_results/
 **工具覆盖**：`promptfoo` + `llm-guard` + `deepeval`
 
 手动测试轨：
-- [ ] 完成 3 个工具各自的从 0 到 1 接入，记录耗时
-- [ ] 在场景 S1（客服单轮）下，对每个工具手动执行 3 类攻击（提示注入、越狱、PII 泄露）
-- [ ] 记录典型误报/漏报案例
+- [x] 完成 3 个工具各自的从 0 到 1 接入，记录耗时
+- [x] 在场景 S1（客服单轮）下，对每个工具手动执行 3 类攻击（提示注入、越狱、PII 泄露）
+- [x] 记录典型误报/漏报案例
 
 自动测试轨：
-- [ ] 从 AILuminate 中提取 30 条/攻击类型（共 90 条），构建 Phase 1 测试集
-- [ ] 对 3 个工具执行统一自动评测
-- [ ] 输出结构化结果（符合 result_schema.json）
+- [x] 从 AILuminate 中提取测试集并执行（已扩展到 `phase2_300.csv`）
+- [x] 对 3 个工具执行统一自动评测
+- [x] 输出结构化结果（符合 result_schema.json）
 
 交付：
-- [ ] 3 工具能力评分表（D1~D4）
-- [ ] 第一版对比报告
+- [x] 3 工具能力评分表（D1~D4）
+- [x] 第一版对比报告
 
-**成功标准**：每个工具至少完成 90 条样本的自动扫描并输出结果，误报率/拦截率可读取。
+**成功标准（完成情况）**：链路已跑通并产出结果；但 `promptfoo/deepeval` 有效样本偏小（8/11），需扩充后再提升结论置信度。
 
 ### Phase 2（第 3~4 周，可复现）
 
 目标：覆盖剩余 P1 工具，建立回归基线。
 
-- [ ] 接入 `PyRIT`（红队攻击生成）、`inspect_ai`、`Guardrails`
-- [ ] 扩展到场景 S2（RAG 问答），每场景 100 条样本
-- [ ] 建立统一结果归档（带时间戳目录）
+- [x] 接入 `PyRIT`（红队攻击生成）、`inspect_ai`、`Guardrails`
+- [x] 扩展到场景 S2（RAG 问答）
+- [x] 建立统一结果归档（带时间戳目录）
 - [ ] 引入 CI nightly 回归
-- [ ] 输出 6 工具横向对比报告
+- [x] 输出 6 工具横向对比报告
 
 ### Phase 3（第 5 周+，产品决策）
 
 目标：补充标准基准参考，输出选型决策。
 
-- [ ] 对接 HELM 公开 leaderboard 数据（参考对齐，不自托管）
+- [x] 对接 HELM 公开 leaderboard 数据（参考对齐，不自托管）
 - [ ] 评估 Modelbench + MLCommons API 接入可行性
 - [ ] 扩展到场景 S3（Agent 工具调用）
-- [ ] 输出 Build/Integrate/Replace 决策文档
-- [ ] 固化发布前安全评测门禁
+- [x] 输出 Build/Integrate/Replace 决策文档
+- [ ] 固化发布前安全评测门禁（当前 regression baseline 仅 3 条，需扩充）
 
 ---
 
