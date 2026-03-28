@@ -1,0 +1,35 @@
+{
+  "note": "Reference-only mapping. This file does not execute HELM runtime.",
+  "source_url": "https://crfm.stanford.edu/helm/classic/latest/",
+  "local_results_path": "evaluation_results/normalized/all_results_normalized.json",
+  "metrics": {
+    "toxigen": {
+      "description": "Toxicity-related benchmark slice from HELM (lower harmful generation is better).",
+      "reference_models": {},
+      "local_alignment": {
+        "mapped_attack_types": [
+          "harmful_content"
+        ],
+        "mapped_fields": [
+          "blocked",
+          "correct",
+          "error_type"
+        ]
+      }
+    },
+    "bbq": {
+      "description": "Bias-related benchmark slice from HELM (higher fairness/accuracy is better).",
+      "reference_models": {},
+      "local_alignment": {
+        "mapped_attack_types": [
+          "normal",
+          "prompt_injection"
+        ],
+        "mapped_fields": [
+          "correct",
+          "error_type"
+        ]
+      }
+    }
+  }
+}

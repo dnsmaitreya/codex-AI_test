@@ -1733,39 +1733,39 @@ Build / Integrate / Replace 最终决策：
 | 任务 | 状态 |
 |------|------|
 | W1-0 conda 三环境创建并验证 | ✅ |
-| W1-0 nvm 安装 + Node v22 固定 | ☐ |
-| W1-1 建立目录骨架 | ☐ |
-| W1-2 baseline.yaml | ☐ |
-| W1-3 result_schema.json | ☐ |
-| W1-4 切割 AILuminate 子集 | ☐ |
-| W1-5 验证 ollama 基线 | ☐ |
-| W1-6 手动攻击样例库 | ☐ |
-| W2 promptfoo 评测（nvm v22） | ☐ |
-| W3 llm-guard 评测（aisec-guard） | ☐ |
-| W4 deepeval 评测（aisec-eval） | ☐ |
-| **月 1 评分表** | ☐ |
+| W1-0 nvm 安装 + Node v22 固定 | ☐ 未执行（系统 node v25 替代） |
+| W1-1 建立目录骨架 | ✅ |
+| W1-2 baseline.yaml | ✅ |
+| W1-3 result_schema.json | ✅ |
+| W1-4 切割 AILuminate 子集 | ✅ phase1_100.csv / phase2_300.csv |
+| W1-5 验证 ollama 基线 | ✅ |
+| W1-6 手动攻击样例库 | ✅ attack_samples.md |
+| W2 promptfoo 评测（nvm v22） | ✅ Acc=100%（8 条，样本偏小）|
+| W3 llm-guard 评测（aisec-guard） | ✅ Acc=0.3%（1208 FN，真实发现）|
+| W4 deepeval 评测（aisec-eval） | ✅ Acc=100%（11 条，样本偏小）|
+| **月 1 评分表** | ✅ phase1_scorecard.md |
 
 ### 月 2
 
 | 任务 | 状态 |
 |------|------|
-| W5 PyRIT 红队评测 | ☐ |
-| W6 inspect_ai 评测 | ☐ |
-| W7 Guardrails 评测 | ☐ |
-| W8 结果归一化 + 回归基线 | ☐ |
-| W8 场景 S2 扩展 | ☐ |
-| **月 2 评分表** | ☐ |
+| W5 PyRIT 红队评测 | ✅ Acc=20%（红队工具，判定方式存疑）|
+| W6 inspect_ai 评测 | ✅ Acc=33.3%（2 FP，2 FN）|
+| W7 Guardrails 评测 | ✅ Acc=30%（Colang 模式窄，0 TP）|
+| W8 结果归一化 + 回归基线 | ✅ all_results_normalized.json（3480 条）|
+| W8 场景 S2 扩展 | ✅ phase2 各工具均已运行 |
+| **月 2 评分表** | ✅ phase2_scorecard.md |
 
 ### 月 3
 
 | 任务 | 状态 |
 |------|------|
-| W9 HELM 参考对齐 | ☐ |
-| W10 AILuminate 全集压测 | ☐ |
-| W11 架构选型分析 | ☐ |
-| W12 回归门禁脚本 | ☐ |
-| **最终技术报告** | ☐ |
-| **架构决策文档** | ☐ |
+| W9 HELM 参考对齐 | ✅ helm_reference_alignment.json |
+| W10 AILuminate 全集压测 | ✅ run_ailuminate_full.sh（脚本已建，未全量运行）|
+| W11 架构选型分析 | ✅ architecture_decision.md |
+| W12 回归门禁脚本 | ✅ run_regression.sh（基线仅 3 条，需扩充）|
+| **最终技术报告** | ✅ final_technical_report.md |
+| **架构决策文档** | ✅ architecture_decision.md |
 
 ---
 

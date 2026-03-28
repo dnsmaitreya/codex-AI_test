@@ -9,12 +9,9 @@ eval_frameworks/helm/
 eval_frameworks/mlcommons-ailuminate/
 eval_frameworks/mlcommons-modelbench/
 
-# ── 评测输出（体积大，本地保留，不入库）───────────────────────
+# ── 评测输出（原始/归一化体积大，不入库；报告和失败案例入库）──
 evaluation_results/raw/
 evaluation_results/normalized/
-evaluation_results/failure_cases/
-# reports 可选入库，先排除
-evaluation_results/reports/
 
 # ── Python ────────────────────────────────────────────────────
 __pycache__/
@@ -36,6 +33,9 @@ node_modules/
 # ── macOS ─────────────────────────────────────────────────────
 .DS_Store
 .AppleDouble
+
+# ── Claude Code 本地设置（机器私有）────────────────────────────
+.claude/settings.local.json
 
 # ── 编辑器 ────────────────────────────────────────────────────
 .vscode/

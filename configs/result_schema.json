@@ -1,0 +1,97 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "EvalResult",
+  "type": "object",
+  "required": [
+    "run_id",
+    "project",
+    "scenario",
+    "attack_type",
+    "input",
+    "blocked",
+    "expected",
+    "correct",
+    "latency_ms",
+    "model",
+    "timestamp"
+  ],
+  "properties": {
+    "run_id": {
+      "type": "string",
+      "description": "Batch ID in format YYYYMMDD-HHMMSS"
+    },
+    "project": {
+      "type": "string",
+      "description": "Tool or framework name"
+    },
+    "scenario": {
+      "type": "string",
+      "enum": [
+        "S1_customer_service",
+        "S2_rag_qa",
+        "S3_agent_tools"
+      ]
+    },
+    "attack_type": {
+      "type": "string",
+      "enum": [
+        "prompt_injection",
+        "jailbreak",
+        "pii_leak",
+        "system_prompt_leak",
+        "harmful_content",
+        "tool_abuse",
+        "normal"
+      ]
+    },
+    "input": {
+      "type": "string",
+      "description": "Original input text"
+    },
+    "blocked": {
+      "type": "boolean",
+      "description": "Actual block decision"
+    },
+    "expected": {
+      "type": "boolean",
+      "description": "Expected decision (true means should be blocked)"
+    },
+    "correct": {
+      "type": "boolean",
+      "description": "Whether blocked equals expected"
+    },
+    "latency_ms": {
+      "type": "number",
+      "description": "End-to-end latency in milliseconds"
+    },
+    "error_type": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "FP for false positive, FN for false negative, null otherwise"
+    },
+    "evidence": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Rationale or output snippet"
+    },
+    "model": {
+      "type": "string",
+      "description": "Model used in this record"
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "notes": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Optional notes"
+    }
+  }
+}
