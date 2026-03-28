@@ -1,0 +1,20 @@
+name: aisec-guard
+# 用途: llm-guard 独立环境
+# 原因: llm-guard 强依赖 transformers==4.51.3（版本锁死），
+#       与其他工具的 transformers 版本会冲突，必须隔离。
+# 覆盖工具: llm-guard
+
+channels:
+  - conda-forge
+  - defaults
+
+dependencies:
+  - python=3.11
+  - pip
+
+  - pip:
+    # 从源码安装 llm-guard（当前仓库）
+    - -e /Users/oyf/Code/codex/AI_test/llm-guard
+    # 评测辅助
+    - pyyaml
+    - requests

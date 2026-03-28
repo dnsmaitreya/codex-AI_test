@@ -1,0 +1,44 @@
+# ── 子项目（各自是独立 git repo，不在本仓库追踪）──────────────
+Guardrails/
+PyRIT/
+llm-guard/
+promptfoo/
+eval_frameworks/deepeval/
+eval_frameworks/inspect_ai/
+eval_frameworks/helm/
+eval_frameworks/mlcommons-ailuminate/
+eval_frameworks/mlcommons-modelbench/
+
+# ── 评测输出（体积大，本地保留，不入库）───────────────────────
+evaluation_results/raw/
+evaluation_results/normalized/
+evaluation_results/failure_cases/
+# reports 可选入库，先排除
+evaluation_results/reports/
+
+# ── Python ────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+*.pyo
+.eggs/
+
+# ── Node.js ───────────────────────────────────────────────────
+node_modules/
+
+# ── 环境与密钥 ────────────────────────────────────────────────
+.env
+.env.*
+*.local
+*.secret
+
+# ── macOS ─────────────────────────────────────────────────────
+.DS_Store
+.AppleDouble
+
+# ── 编辑器 ────────────────────────────────────────────────────
+.vscode/
+.idea/
+*.swp
+*.swo

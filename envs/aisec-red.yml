@@ -1,0 +1,20 @@
+name: aisec-red
+# 用途: PyRIT 红队攻击环境
+# 原因: PyRIT 依赖 torch>=2.7.0 + azure 全家桶，
+#       与 llm-guard 的 transformers==4.51.3 冲突，单独隔离。
+# 覆盖工具: PyRIT
+
+channels:
+  - conda-forge
+  - defaults
+
+dependencies:
+  - python=3.11
+  - pip
+
+  - pip:
+    # 从源码安装 PyRIT（当前仓库）
+    - -e /Users/oyf/Code/codex/AI_test/PyRIT[all]
+    # 评测辅助
+    - pyyaml
+    - requests

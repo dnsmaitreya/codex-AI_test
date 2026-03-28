@@ -1,0 +1,31 @@
+name: aisec-eval
+# 用途: 通用评测环境（轻量工具合并）
+# 原因: deepeval / inspect_ai / Guardrails 均无 torch 强依赖，
+#       且 transformers 版本均无强锁，兼容性好，合并一个环境节省空间。
+# 覆盖工具: deepeval · inspect_ai · Guardrails
+# 补充: 也用于运行 evaluation_runner/ 下的通用脚本
+
+channels:
+  - conda-forge
+  - defaults
+
+dependencies:
+  - python=3.11
+  - pip
+  # annoy 无 ARM 预编译 wheel，且 conda-forge 也无此包。
+  # 必须在 pip 安装前手动用以下命令编译（见 envs/README.md）：
+  #   SDK=$(xcrun --show-sdk-path)
+  #   CPLUS_INCLUDE_PATH="$SDK/usr/include/c++/v1:$SDK/usr/include" \
+  #   MACOSX_DEPLOYMENT_TARGET=12.0 \
+  #   conda run -n aisec-eval pip install annoy
+
+  - pip:
+    # 从源码安装三个工具（当前仓库）
+    - -e /Users/oyf/Code/codex/AI_test/eval_frameworks/deepeval
+    - -e /Users/oyf/Code/codex/AI_test/eval_frameworks/inspect_ai
+    - -e /Users/oyf/Code/codex/AI_test/Guardrails   # 实际包名: nemoguardrails (NVIDIA NeMo Guardrails)
+    # 评测基础依赖
+    - pyyaml
+    - requests
+    - litellm       # deepeval 用 litellm 对接 ollama
+    - jsonschema    # result_schema 验证
